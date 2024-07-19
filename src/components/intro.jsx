@@ -1,9 +1,16 @@
 import React from 'react'
 import {HERO_CONTENT} from '../constants/index'
-import profilepic from '../assets/kevinRushProfile.jpg'
+import profilepic from '../assets/me.jpg'
 import { motion } from "framer-motion"
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { useEffect } from 'react'
 
 const Intro = () => {
+  useEffect(() => {
+    gsap.to('.link', { color: '#40a832', y: 0, duration: 1, repeat:-1, stagger: 0.25, ease:'power2.inOut' });
+    gsap.to('.link', { color: '#ffffff', delay: 1, duration: 1, repeat:-1, stagger: 0.25, ease: 'power2.inOut' });
+  }, []);
   return (
     <div className='mx-20 border-b border-neutral-900 pb-4 lg:mb-35'>
         <div className='flex flex-wrap'>
@@ -14,7 +21,7 @@ const Intro = () => {
                  animate={{x:0, opacity:1}}
                  transition={{duration: 0.7, delay: 0.5}}
                  className='pb-16 text-2xl font-thin tracking-tight lg:mt-16 lg:text-6xl font-medium'>
-                    Hawariyaw Paulos
+                    <span className='link'>H</span><span className='link'>a</span><span className='link'>w</span><span className='link'>a</span><span className='link'>r</span><span className='link'>i</span><span className='link'>y</span><span className='link'>a</span><span className='link'>w</span>    <span className='link'>p</span><span className='link'>a</span><span className='link'>u</span><span className='link'>l</span><span className='link'>o</span><span className='link'>s</span>
                  </motion.h1>
                  <motion.span 
                  initial={{x:-100, opacity:0}}
@@ -39,7 +46,7 @@ const Intro = () => {
             animate={{x:0, opacity:1}}
             transition={{duration: 0.7, delay: 2}}
             className='flex justify-center'> 
-                <img src={profilepic} alt='Hawariyaw paulos' />
+                <img src={profilepic} alt='Hawariyaw paulos' className='im w-1/7 h-5/7' />
             </motion.div>
            </div>
         </div>
